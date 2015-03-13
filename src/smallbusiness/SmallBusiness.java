@@ -29,11 +29,11 @@ public class SmallBusiness {
     }
     public static boolean Authentication(String userrName,String password)
     {
-       for(int i=0;i<10;i++)
+       for(int i=0;i<arrUserAccountList.length;i++)
        {
            if(arrUserAccountList[i]!=null)
            {
-               if(userrName.equals(arrUserAccountList[i].getUserName())&& password.equals(arrUserAccountList[i].getPassword()))
+               if(arrUserAccountList[i].authenticate(userrName, password))
                    return true;
            }
                     
@@ -41,304 +41,27 @@ public class SmallBusiness {
        return false;
     }
     public static void main(String[] args) {
-      // Scanner scan = new Scanner (System.in);
-        String user;
-        String pass;
-        load();
-       int count=1;
-       while(count<10)
+       Scanner scan = new Scanner (System.in);
+       String user;
+       String pass;
+       load();
+       System.out.print("Welcome to authenticaton portal");
+       System.out.print("\n\tPlease enter username: ");
+       user=scan.next();
+       System.out.print("\n\tPlease enter password: ");
+       pass=scan.next();
+       while(!user.equals("-1")||!pass.equals("-1"))
        {
-            switch(count)
-            {
-                case 1:
-
-                    user="-1";
-                    pass="-1";
-                    System.out.println();     
-                    while(!user.equals("-1")||!pass.equals("-1"))
-                    {
-                        System.out.print("Welcome to Authentication portal");
-                        System.out.print("\nPlease enter your username");
-                        System.out.print("\n\tUsername= "+user);
-                        System.out.print("\nPlease enter your password");
-                        System.out.print("\n\tPassword= "+pass);
-                            if(Authentication(user,pass))
-                             {
-                                 System.out.print("\nAccess granted");
-                                 user="-1";
-                                 pass="-1";
-                             }
-                             else
-                             {
-                                 System.out.print("\nAccess denied");
-                                 user="-1";
-                                 pass="-1";
-                             }
-                    }
-                    count++;
-                    System.out.println();
-                            break;
-                    
-                case 2:
-
-                    System.out.println();
-                    user="joe";
-                    pass="111";
-                    System.out.println();
-                    while(!user.equals("-1")||!pass.equals("-1"))
-                    {
-                        System.out.print("Welcome to Authentication portal");
-                        System.out.print("\nPlease enter your username");
-                        System.out.print("\n\tUsername= "+user);
-                        System.out.print("\nPlease enter your password");
-                        System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                         count++;
-                         System.out.println();
-                         System.out.println();
-                    }
-                    
-                    System.out.println();
-                             break;
-                     case 3:
-
-                    System.out.println();
-                    user="nancy";
-                    pass="555";
-                    
-                    System.out.println();
-                    while(!user.equals("-1")||!pass.equals("-1"))
-                    {
-                            System.out.print("Welcome to Authentication portal");
-                            System.out.print("\nPlease enter your username");
-                            System.out.print("\n\tUsername= "+user);
-                            System.out.print("\nPlease enter your password");
-                            System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                            System.out.println();
-                    }
-                    count++;
-                    System.out.println();
-                             break;
-                    case 4:
-                    System.out.println();
-                            user="frank";
-                            pass="777";
-                            while(!user.equals("-1")||!pass.equals("-1"))
-                            {
-                                System.out.print("Welcome to Authentication portal");
-                                System.out.print("\nPlease enter your username");
-                                System.out.print("\n\tUsername= "+user);
-                                System.out.print("\nPlease enter your password");
-                                System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                
-                                 System.out.println();
-                                 System.out.println();
-                            }
-                             count++;
-                            
-                    System.out.println();
-                    break;
-                         case 5:
-                            user="joe";
-                            pass="555";
-                           
-                    System.out.println();
-                            while(!user.equals("-1")||!pass.equals("-1"))
-                            {
-                                System.out.print("Welcome to Authentication portal");
-                                System.out.print("\nPlease enter your username");
-                                System.out.print("\n\tUsername= "+user);
-                                System.out.print("\nPlease enter your password");
-                                System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                              
-                                 System.out.println();
-                                 System.out.println();
-                            }
-                               count++;
-                             
-                    System.out.println();
-                    break;
-                    case 6:
-                            user="frank";
-                            pass="555";
-                            
-                    System.out.println();
-                            while(!user.equals("-1")||!pass.equals("-1"))
-                            {
-                                System.out.print("Welcome to Authentication portal");
-                                System.out.print("\nPlease enter your username");
-                                System.out.print("\n\tUsername= "+user);
-                                System.out.print("\nPlease enter your password");
-                                System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                               
-                                 System.out.println();
-                                 System.out.println();
-                            }
-                       count++;
-                           
-                    System.out.println();
-                                    break;
-                     case 7:
-                         
-                            user="joe";
-                            pass="-1";
-                            System.out.println();
-                            
-                            while(!user.equals("-1")||!pass.equals("-1"))
-                            {
-                               
-                                System.out.print("Welcome to Authentication portal");
-                                System.out.print("\nPlease enter your username");
-                                System.out.print("\n\tUsername= "+user);
-                                System.out.print("\nPlease enter your password");
-                                System.out.print("\n\tPassword= "+pass);
-                                        if(Authentication(user,pass))
-                                        {
-                                            System.out.print("\nAccess granted");
-                                            user="-1";
-                                            pass="-1";
-                                        }
-                                        else
-                                        {
-                                            System.out.print("\nAccess denied");
-                                            user="-1";
-                                            pass="-1";
-                                        }
-                              
-                                 System.out.println();
-                                 System.out.println();
-                            }
-                               count++;
-                           
-                    System.out.println();
-                                             break;
-                    case 8:
-                            user="-1";
-                            pass="-11";
-                              
-                    System.out.println();
-                            while(!user.equals("-1")||!pass.equals("-1"))
-                            {
-                                System.out.print("Welcome to Authentication portal");
-                                System.out.print("\nPlease enter your username");
-                                System.out.print("\n\tUsername= "+user);
-                                System.out.print("\nPlease enter your password");
-                                System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                             
-                                 System.out.println();
-                                 System.out.println();
-                            }
-                                count++;
-                            
-                    System.out.println();
-                    break;
-                 case 9:
-                            user="-1";
-                            pass="-1";
-                             
-                    System.out.println();
-                            while(!user.equals("-1")&&!pass.equals("-1"))
-                            {
-                                System.out.print("Welcome to Authentication portal");
-                                System.out.print("\nPlease enter your username");
-                                System.out.print("\n\tUsername= "+user);
-                                System.out.print("\nPlease enter your password");
-                                System.out.print("\n\tPassword= "+pass);
-                                if(Authentication(user,pass))
-                                {
-                                    System.out.print("\nAccess granted");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                else
-                                {
-                                    System.out.print("\nAccess denied");
-                                    user="-1";
-                                    pass="-1";
-                                }
-                                
-                                 System.out.println();
-                                 System.out.println();
-                            }
-                             count++;
-                             
-                    System.out.println();
-                    break;
-                     default:
-                        break;
-                }
-            }
+           if(Authentication(user,pass))
+               System.out.print("Access granted!");
+           else
+               System.out.print("Access denied! ");
+          System.out.print("\nWelcome to authenticaton portal");
+            System.out.print("\n\tPlease enter username: ");
+            user=scan.next();
+            System.out.print("\n\tPlease enter password: ");
+            pass=scan.next();              
+       }
         }
             
     }
